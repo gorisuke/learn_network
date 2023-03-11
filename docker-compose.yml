@@ -1,0 +1,17 @@
+version: "3" 
+services:
+  kali:
+    container_name: "kali"
+    build:
+      dockerfile: "./container/kali/Dockerfile"
+    tty: true
+  ubuntu:
+    container_name: "ubuntu"
+    build:
+      dockerfile: "./container/ubuntu/Dockerfile"
+    tty: true
+    ports:
+      - "10022:22"
+      - "8044:80"
+    cap_add:
+      - NET_ADMIN
